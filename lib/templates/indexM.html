@@ -1,0 +1,251 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--icon of title page -->
+        <link rel="icon" href="{% static 'lib/img/MusLogo.jpg'  %}">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Mustansiriya</title>
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+        <!-- Bootstrap core CSS -->
+        <link href="{% static 'lib/css/bootstrap.min.css' %}" rel="stylesheet">
+        <!-- Material Design Bootstrap -->
+        <link href="{% static 'lib/css/mdb.min.css' %}" rel="stylesheet">
+        <!-- Your custom styles (optional) -->
+        <link href="{% static 'lib/css/style.css' %}" rel="stylesheet">
+      
+      <!-- swiper -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+        <link rel="stylesheet" type="text/css" href="{% static 'lib/swiper.min.css' %}">
+    
+      <!-- end swiber -->
+    
+
+      <style>
+        body {
+          font-family: Arial;
+        }
+        
+        * {
+          box-sizing: border-box;
+        }
+        
+        form.example input[type=text] {
+          padding: 10px;
+          font-size: 17px;
+          border: 1px solid grey;
+          float: left;
+          width: 80%;
+       
+        }
+        
+        form.example button {
+          float: left;
+          width: 20%;
+          padding: 10px;
+          background: #2196F3;
+          color: white;
+          font-size: 17px;
+          border: 1px solid grey;
+          border-left: none;
+          cursor: pointer;
+        }
+        
+        form.example button:hover {
+          background: #0b7dda;
+        }
+        
+        form.example::after {
+          content: "";
+          clear: both;
+          display: table;
+        }
+    </style>
+    
+  </head>
+  <body>
+      <img class="d-block w-100" src="{% static 'lib/img/logo.png' %}"> 
+
+ <!--Navbar-->
+ <nav class="navbar navbar-expand-lg navbar-dark primary-color">
+
+  <div class="container"> 
+    
+  <!-- Navbar brand -->
+  <a class="navbar-brand" href="/">Library</a>
+
+  <!-- Collapse button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+    aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Collapsible content -->
+  <div class="collapse navbar-collapse" id="basicExampleNav">
+
+    <!-- Links -->
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Books
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+
+    </ul>
+</div>
+<!-- Collapsible content -->
+</div>
+</nav>
+<!--/.Navbar-->
+
+<form class="example " action="" method="GET" style="margin:auto;max-width:300px;padding-top: 20px;">
+  <input type="text" placeholder="Search for book name..." name="q" value="{{ request.GET.q }}">
+  <button type="submit"><i class="fa fa-search"></i></button>
+</form>
+
+
+
+  <!-- card -->
+    <section style="padding: 40px 0">
+      <div class="container">  
+        <div class="row">
+          {%for item in booksm%}
+          <div class="col-lg-3" style="margin-bottom: 10px">
+            <!-- Card Light -->
+      <div class="card">
+    <!-- Card mage -->
+    <div class="view overlay">
+      <img class="card-img-top width: 200px;height:200px margin: auto" src="{{ item.Book_Pictuer.url }}"                                                         
+      style="max-height: 200px;min-height: 200px">
+      <a>
+        <div class="mask rgba-white-slight"></div>
+      </a>
+    </div>
+    <!-- Card content -->
+    <div class="card-body">  
+      <!-- Title -->
+      <h4 class="card-title">{{ item.Book_Name }}</h4>
+      <hr>
+      <!-- Text -->
+      <p class="card-text" style="color: #e20f00">{{ item.Auther_Name }}</p>
+      <p class="card-text" style="color: #050f94">{{ "unversity : "}}{{ item.unversity_Name  }}</p>
+      <!-- Link -->
+      <a  href="/viewbookM/{{item.id}}" class="black-text d-flex justify-content-end" ><h5 style="text-align: center;" > View <i class="fas fa-angle-double-right"></i></h5></a>
+    </div>
+  </div>
+  <!-- Card Light -->
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+  </section>
+
+
+
+ <!-- SCRIPTS -->
+  <!-- JQuery -->
+  <script type="text/javascript" src="{% static 'lib/js/jquery-3.4.0.min.js' %}"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="{% static 'lib/js/popper.min.js' %}"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="{% static 'lib/js/bootstrap.min.js' %}"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="{% static 'lib/js/mdb.min.js' %}"></script>
+  
+
+<!-- Footer -->
+<footer class="page-footer font-small mdb-color pt-4">
+
+    <!-- Footer Links -->
+    <div class="container text-center text-md-left">
+  
+      <!-- Footer links -->
+      <div class="row text-center text-md-left mt-3 pb-3">
+  
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+          <h6 class="text-uppercase mb-4 font-weight-bold">The Central Library</h6>
+          <p>  تأسست مكتبة الجامعة المستنصرية في 1/1/1964 بعد عام من تأسيس الجامعة وشيدت بناية المكتبة المركزية على مساحة من الارض تبلغ 1765م2 من طابقين وتبلغ مساحة كل طابق 1700م2 . بوشر العمل بتنفيذ البناية في حزيران عام 1969 وتم اكمال البناية في نيسان عام 1971م   </p>
+         
+        </div>
+        <!-- Grid column -->
+  
+        <hr class="w-100 clearfix d-md-none">
+  
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+          <h6 class="text-uppercase mb-4 font-weight-bold">Products</h6>
+          <p>
+            <a href="#!">Mustansiriya</a>
+          </p>
+          <p>
+            <a href="#!">Bagdad</a>
+          </p>
+          <p>
+            <a href="#!">Technology</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+  
+        <hr class="w-100 clearfix d-md-none">
+  
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+          <h6 class="text-uppercase mb-4 font-weight-bold">Useful links</h6>
+          <p>
+            <a href="https://uomustansiriyah.edu.iq/e-learn/stu/login.php">البروفايل الاكاديمي للطلبة</a>
+          </p>
+          <p>
+            <a href="https://uomustansiriyah.edu.iq/center.php?id_dept=120">center library</a>
+          </p>
+     
+        </div>
+  
+        <!-- Grid column -->
+        <hr class="w-100 clearfix d-md-none">
+  
+      
+  
+      </div>
+      <!-- Footer links -->
+  
+      <hr>
+  
+      <!-- Grid row -->
+      <div class="row d-flex align-items-center">
+  
+        <!-- Grid column -->
+        <div class="col-md-7 col-lg-8">
+  
+          <!--Copyright-->
+          <p class="text-center text-md-left">© 2018 Copyright:
+            <a href="#/">
+              <strong>anmar,ali</strong>
+            </a>
+          </p>
+  
+        </div>
+        <!-- Grid column -->
+  
+        <!-- Grid column -->
+        <div class="col-md-5 col-lg-4 ml-lg-0">
+  
+         
+  
+        </div>
+        <!-- Grid column -->
+  
+      </div>
+      <!-- Grid row -->
+  
+    </div>
+    <!-- Footer Links -->
+  
+  </footer>
+  <!-- Footer -->
+
+</body>
+</html>

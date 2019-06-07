@@ -1,0 +1,221 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'mainn/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="{% static 'mainn/css/mdb.min.css' %}" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="{% static 'mainn/css/style.css' %}" rel="stylesheet">
+
+    <style>
+        .Box{
+            width: 400px;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+<body>
+              <!--Navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark primary-color">
+
+  <div class="container"> 
+    
+  <!-- Navbar brand -->
+  <a class="navbar-brand" href="/">Library</a>
+
+  <!-- Collapse button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+    aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Collapsible content -->
+  <div class="collapse navbar-collapse" id="basicExampleNav">
+
+    <!-- Links -->
+    <ul class="navbar-nav ml-auto">
+
+        <li class="nav-item">
+          <a class="nav-link" href="/register/">Register</a>
+        </li>
+ 
+    </ul>
+   
+  </div>
+  <!-- Collapsible content -->
+  </div>
+
+</nav>
+<!--/.Navbar-->
+
+
+
+   <div class="Box">
+        <form method="POST" action="{% url 'Log_Backend' %}">
+            {% csrf_token %} 
+           
+            <h1 class="text-center">Log in</h1>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">User Name</label>
+                    <input type="text" class="form-control" id="user" name="username"  placeholder="Enter User Name">
+                  </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Password</label>
+                  <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                </div>
+                <!-- {{ form.errors }} -->
+                <button type="submit" class="btn btn-outline-success btn-block">Login</button>
+    
+         </form>
+   </div>
+   
+
+       <!-- Footer -->
+       <footer class="page-footer font-small mdb-color pt-4">
+
+        <!-- Footer Links -->
+        <div class="container text-center text-md-left">
+      
+          <!-- Footer links -->
+          <div class="row text-center text-md-left mt-3 pb-3">
+      
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+              <h6 class="text-uppercase mb-4 font-weight-bold">The Central Library</h6>
+              <p>This library has offices for three universities This site makes it easier for you to search faster and smarter to find easy books  </p>
+             
+            </div>
+            <!-- Grid column -->
+      
+            <hr class="w-100 clearfix d-md-none">
+      
+            <!-- Grid column -->
+      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+          <h6 class="text-uppercase mb-4 font-weight-bold">Products</h6>
+          <p>
+            <a href="https://uomustansiriyah.edu.iq">Mustansiriya</a>
+          </p>
+          <p>
+            <a href="http://uobaghdad.edu.iq">Bagdad</a>
+          </p>
+          <p>
+            <a href="http://www.uotechnology.edu.iq">Technology</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+      
+            <hr class="w-100 clearfix d-md-none">
+      
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+              <h6 class="text-uppercase mb-4 font-weight-bold">Useful links</h6>
+              <p>
+                <a href="#!">Anmar galb</a>
+              </p>
+              <p>
+                <a href="#!">Ali shaker</a>
+              </p>
+         
+            </div>
+      
+            <!-- Grid column -->
+            <hr class="w-100 clearfix d-md-none">
+      
+            <!-- Grid column -->
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+              <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
+              <p>
+                <i class="fas fa-home mr-3"></i> Iraq,Bagdad</p>
+              <p>
+                <i class="fas fa-envelope mr-3"></i> Anmargalb18@gmail.com</p>
+              <p>
+                <i class="fas fa-phone mr-3"></i> +469 770 456 017 0</p>
+              <p>
+                <i class="fas fa-print mr-3"></i> +469 771 162 524 0</p>
+            </div>
+            <!-- Grid column -->
+      
+          </div>
+          <!-- Footer links -->
+      
+          <hr>
+      
+          <!-- Grid row -->
+          <div class="row d-flex align-items-center">
+      
+            <!-- Grid column -->
+            <div class="col-md-7 col-lg-8">
+      
+              <!--Copyright-->
+              <p class="text-center text-md-left">© 2018 Copyright:
+                <a href="#/">
+                  <strong>anmar,ali</strong>
+                </a>
+              </p>
+      
+            </div>
+            <!-- Grid column -->
+      
+            <!-- Grid column -->
+            <div class="col-md-5 col-lg-4 ml-lg-0">
+      
+              <!-- Social buttons -->
+              <!-- <div class="text-center text-md-right">
+                <ul class="list-unstyled list-inline">
+                  <li class="list-inline-item">
+                    <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                      <i class="fab fa-facebook-f"></i>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                      <i class="fab fa-twitter"></i>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                      <i class="fab fa-google-plus-g"></i>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                      <i class="fab fa-linkedin-in"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div> -->
+      
+            </div>
+            <!-- Grid column -->
+      
+          </div>
+          <!-- Grid row -->
+      
+        </div>
+        <!-- Footer Links -->
+      
+      </footer>
+      <!-- Footer -->
+
+
+
+   
+  <!-- SCRIPTS -->
+  <!-- JQuery -->
+  <script type="text/javascript" src="{% static 'mainn/js/jquery-3.4.0.min.js' %}"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="{% static 'mainn/js/popper.min.js' %}"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="{% static 'mainn/js/bootstrap.min.js' %}"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="{% static 'mainn/js/mdb.min.js' %}"></script>
+</body>
+</html>

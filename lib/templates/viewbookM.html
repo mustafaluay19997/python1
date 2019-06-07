@@ -1,0 +1,207 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="icon" href="{% static 'lib/img/MusLogo.jpg'  %}">
+    <meta charset="utf-8">
+    <title>Mustansiriya </title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'lib/css/bootstrap.min.css' %}" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="{% static 'lib/css/mdb.min.css' %}" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="{% static 'lib/css/style.css' %}" rel="stylesheet">
+
+  <style>
+      .mycard{
+        width: 600px;
+        margin: auto
+      }
+      @media only screen and (max-width: 500px) {
+        .mycard{
+          width: 350px;
+          margin: auto
+        }
+      }
+    </style>
+</head>
+<body>
+  <!-- logo mus -->
+    <img class="d-block w-100" src="{% static 'lib/img/logo.png' %}"> 
+   <!--Navbar-->
+   <nav class="navbar navbar-expand-lg navbar-dark primary-color">
+
+      <div class="container"> 
+        
+      <!-- Navbar brand -->
+      <a class="navbar-brand" href="/">Library</a>
+    
+      <!-- Collapse button -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+        aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <!-- Collapsible content -->
+      <div class="collapse navbar-collapse" id="basicExampleNav">
+    
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto">
+    
+     
+        </ul>
+       
+      </div>
+      <!-- Collapsible content -->
+      </div>
+    
+</nav>
+<!--/.Navbar-->
+
+
+<section  > 
+    {%for i in u%}
+   
+<div style="padding: 30px 0;">
+    <!-- card -->
+    <div class="container"> 
+        <div class="card booking-card shadow-lg p-3 mb-5 bg-white rounded mycard" > 
+
+            <!-- Card image -->
+            <div class="view overlay">
+              <img style="height: 350px;width: 350px; margin: auto" src="{{ i.Book_Pictuer.url }}" alt="Card image cap">
+              <a href="#!">
+                <div class="mask rgba-white-slight"></div>
+              </a>
+            </div>
+  <hr>
+            <!-- Card content -->
+            <div class="card-body text-center"  >
+  
+              <!-- Title -->
+              <h4 class="card-title font-weight-bold" style="color: #e4405f;" ><a>{{"Book Name : "}}{{i.Book_Name}}</a></h4>
+              <!-- Data -->
+               
+              <h4 class="mb-2">{{"Auther Name : "}}{{i.Auther_Name}}</h4>
+              <!-- Text -->
+              <p class="card-text">{{"Number page : "}}{{i.Number_page}}</p>
+              <p class="card-text">{{"unversity Name : "}}{{i.unversity_Name}}</p>
+              <p class="card-text" >{{"Publisher : "}}{{i.Publisher}}</p>
+              <p class="card-text" >{{"date Publish : "}}{{i.date_Publish}}</p>
+              <!-- Button -->
+              <a href="{{i.Book_File.url}}" class="btn btn-flat deep-purple-text p-1 mx-0 mb-0 float-right">Download</a>
+              <a  href="/bookssM/"  class="btn btn-flat deep-purple-text p-1 mx-0 mb-0 float-left">Back</a>
+            </div>
+  
+          </div>
+          <!-- Card -->
+    </div>
+</div>
+{% endfor %}
+</section>
+  <!-- SCRIPTS -->
+  <!-- JQuery -->
+  <script type="text/javascript" src="{% static 'lib/js/jquery-3.4.0.min.js' %}"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="{% static 'lib/js/popper.min.js' %}"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="{% static 'lib/js/bootstrap.min.js' %}"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="{% static 'lib/js/mdb.min.js' %}"></script>
+  
+  
+<!-- Footer -->
+<footer class="page-footer font-small mdb-color pt-4">
+
+    <!-- Footer Links -->
+    <div class="container text-center text-md-left">
+  
+      <!-- Footer links -->
+      <div class="row text-center text-md-left mt-3 pb-3">
+  
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+          <h6 class="text-uppercase mb-4 font-weight-bold">The Central Library</h6>
+          <p>  تأسست مكتبة الجامعة المستنصرية في 1/1/1964 بعد عام من تأسيس الجامعة وشيدت بناية المكتبة المركزية على مساحة من الارض تبلغ 1765م2 من طابقين وتبلغ مساحة كل طابق 1700م2 . بوشر العمل بتنفيذ البناية في حزيران عام 1969 وتم اكمال البناية في نيسان عام 1971م   </p>
+         
+        </div>
+        <!-- Grid column -->
+  
+        <hr class="w-100 clearfix d-md-none">
+  
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+          <h6 class="text-uppercase mb-4 font-weight-bold">Products</h6>
+          <p>
+            <a href="#!">Mustansiriya</a>
+          </p>
+          <p>
+            <a href="#!">Bagdad</a>
+          </p>
+          <p>
+            <a href="#!">Technology</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+  
+        <hr class="w-100 clearfix d-md-none">
+  
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+          <h6 class="text-uppercase mb-4 font-weight-bold">Useful links</h6>
+          <p>
+            <a href="https://uomustansiriyah.edu.iq/e-learn/stu/login.php">البروفايل الاكاديمي للطلبة</a>
+          </p>
+          <p>
+            <a href="https://uomustansiriyah.edu.iq/center.php?id_dept=120">center library</a>
+          </p>
+     
+        </div>
+  
+        <!-- Grid column -->
+        <hr class="w-100 clearfix d-md-none">
+  
+      
+  
+      </div>
+      <!-- Footer links -->
+  
+      <hr>
+  
+      <!-- Grid row -->
+      <div class="row d-flex align-items-center">
+  
+        <!-- Grid column -->
+        <div class="col-md-7 col-lg-8">
+  
+          <!--Copyright-->
+          <p class="text-center text-md-left">© 2018 Copyright:
+            <a href="#/">
+              <strong>anmar,ali</strong>
+            </a>
+          </p>
+  
+        </div>
+        <!-- Grid column -->
+  
+        <!-- Grid column -->
+        <div class="col-md-5 col-lg-4 ml-lg-0">
+  
+         
+  
+        </div>
+        <!-- Grid column -->
+  
+      </div>
+      <!-- Grid row -->
+  
+    </div>
+    <!-- Footer Links -->
+  
+  </footer>
+  <!-- Footer -->
+</body>
+</html>

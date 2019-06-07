@@ -1,0 +1,255 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Book </title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'mainn/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="{% static 'mainn/css/mdb.min.css' %}" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="{% static 'mainn/css/style.css' %}" rel="stylesheet">
+
+    <style>
+        .mycard{
+          width: 600px;
+          margin: auto
+        }
+        @media only screen and (max-width: 500px) {
+          .mycard{
+            width: 350px;
+            margin: auto
+          }
+        }
+      </style>
+</head>
+<body style="background: #e8ebeb;" >
+
+
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark primary-color">
+
+                  <div class="container"> 
+                    
+                  <!-- Navbar brand -->
+                  <a class="navbar-brand" href="/">Library</a>
+                
+                  <!-- Collapse button -->
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+                    aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                
+                  <!-- Collapsible content -->
+                  <div class="collapse navbar-collapse" id="basicExampleNav">
+                
+                    <!-- Links -->
+                    <ul class="navbar-nav mr-auto">
+                
+                 
+                    </ul>
+                   
+                  </div>
+                  <!-- Collapsible content -->
+                  </div>
+                
+    </nav>
+    <!--/.Navbar-->
+
+
+
+
+<section  > 
+            {%for i in t%}
+           
+        <div style="padding: 30px 0;">
+            <!-- card -->
+            <div class="container"> 
+                <div class="card booking-card shadow-lg p-3 mb-5 bg-white rounded mycard" > 
+    
+                    <!-- Card image -->
+                    <div class="view overlay">
+                      <img style="height: 350px;width: 350px; margin: auto" src="{{ i.Book_Pictuer.url }}" alt="Card image cap">
+                      <a href="#!">
+                        <div class="mask rgba-white-slight"></div>
+                      </a>
+                    </div>
+          <hr>
+                    <!-- Card content -->
+                    <div class="card-body text-center"  >
+          
+                      <!-- Title -->
+                      <h4 class="card-title font-weight-bold" style="color: #e4405f;" ><a>{{"Book Name : "}}{{i.Book_Name}}</a></h4>
+                      <!-- Data -->
+                      
+                      <h4 class="mb-2">{{"Auther Name : "}}{{i.Auther_Name}}</h4>
+                      <!-- Text -->
+                      <p class="card-text">{{"Number page : "}}{{i.Number_page}}</p>
+                      <p class="card-text">{{"unversity Name : "}}{{i.unversity_Name}}</p>
+                      <p class="card-text" >{{"Publisher : "}}{{i.Publisher}}</p>
+                      <p class="card-text" >{{"date Publish : "}}{{i.date_Publish}}</p>
+                      <!-- Button -->
+                      <a href="{{i.Book_File.url}}" class="btn btn-flat deep-purple-text p-1 mx-0 mb-0 float-right">Download</a>
+                      <a  href="/books/"  class="btn btn-flat deep-purple-text p-1 mx-0 mb-0 float-left">Back</a>
+                    </div>
+          
+                  </div>
+                  <!-- Card -->
+            </div>
+    </div>
+    {% endfor %}
+</section>
+    
+
+
+
+<!-- Footer -->
+<footer class="page-footer font-small mdb-color pt-4">
+
+    <!-- Footer Links -->
+    <div class="container text-center text-md-left">
+  
+      <!-- Footer links -->
+      <div class="row text-center text-md-left mt-3 pb-3">
+  
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+          <h6 class="text-uppercase mb-4 font-weight-bold">The Central Library</h6>
+          <p>This library has offices for three universities This site makes it easier for you to search faster and smarter to find easy books  </p>
+         
+        </div>
+        <!-- Grid column -->
+  
+        <hr class="w-100 clearfix d-md-none">
+     <!-- Grid column -->
+     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+        <h6 class="text-uppercase mb-4 font-weight-bold">Products</h6>
+        <p>
+          <a href="https://uomustansiriyah.edu.iq">Mustansiriya</a>
+        </p>
+        <p>
+          <a href="http://uobaghdad.edu.iq">Bagdad</a>
+        </p>
+        <p>
+          <a href="http://www.uotechnology.edu.iq">Technology</a>
+        </p>
+      </div>
+      <!-- Grid column -->
+  
+        <hr class="w-100 clearfix d-md-none">
+  
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+          <h6 class="text-uppercase mb-4 font-weight-bold">Useful links</h6>
+          <p>
+            <a href="#!">Anmar Galb</a>
+          </p>
+          <p>
+            <a href="#!">Ali Shaker</a>
+          </p>
+          <p>
+            <a href="https://uomustansiriyah.edu.iq/e-learn/profile.php?id=232">Noor Thamer</a>
+          </p>
+        </div>
+  
+        <!-- Grid column -->
+        <hr class="w-100 clearfix d-md-none">
+  
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+          <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
+          <p>
+            <i class="fas fa-home mr-3"></i> Iraq,Bagdad</p>
+          <p>
+            <i class="fas fa-envelope mr-3"></i> Anmargalb18@gmail.com</p>
+          <p>
+         <p>
+           <i class="fas fa-envelope mr-3"></i> Alishaker117@gmail.com</p>
+          <p>
+            <i class="fas fa-phone mr-3"></i> +469 770 456 017 0</p>
+          <p>
+            <i class="fas fa-print mr-3"></i> +469 771 162 524 0</p>
+        </div>
+        <!-- Grid column -->
+  
+      </div>
+      <!-- Footer links -->
+  
+      <hr>
+  
+      <!-- Grid row -->
+      <div class="row d-flex align-items-center">
+  
+        <!-- Grid column -->
+        <div class="col-md-7 col-lg-8">
+  
+          <!--Copyright-->
+          <p class="text-center text-md-left">© 2019 Copyright:
+            <a href="#/">
+              <strong>anmar,ali</strong>
+            </a>
+          </p>
+  
+        </div>
+        <!-- Grid column -->
+  
+        <!-- Grid column -->
+        <div class="col-md-5 col-lg-4 ml-lg-0">
+  
+          <!-- Social buttons -->
+          <div class="text-center text-md-right">
+            <ul class="list-unstyled list-inline">
+              <li class="list-inline-item">
+                <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                  <i class="fab fa-facebook-f" style="color:  #55acee"></i>
+   
+  
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                  <i class="fab fa-twitter"style="color: #3b5999" ></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                  <i class="fab fa-google-plus-g" style="color: #dd4b39 " ></i>
+                </a>
+              </li>
+              <!-- <li class="list-inline-item">
+                <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                  <i class="fab fa-insta" style="color: #dd4b39 " ></i>
+                </a>
+              </li> -->
+            </ul>
+          </div>
+  
+        </div>
+        <!-- Grid column -->
+  
+      </div>
+      <!-- Grid row -->
+  
+    </div>
+    <!-- Footer Links -->
+  
+  </footer>
+  <!-- Footer -->
+  
+  
+
+  <!-- SCRIPTS -->
+  <!-- JQuery -->
+  <script type="text/javascript" src="{% static 'mainn/js/jquery-3.4.0.min.js' %}"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="{% static 'mainn/js/popper.min.js' %}"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="{% static 'mainn/js/bootstrap.min.js' %}"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="{% static 'mainn/js/mdb.min.js' %}"></script>
+    
+</body>
+</html>
